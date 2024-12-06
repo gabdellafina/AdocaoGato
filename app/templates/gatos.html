@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Gatos {% endblock %}
+
+{% block main %}
+<div>
+  <h2>Total de Gatos Disponíveis para Adoção: {{ quantidade }}</h2>
+</div>
+
+<div style="display: flex; flex-wrap: wrap;">
+  {% for gato in dados %}
+  <div class="cardR" style="width: 18rem; margin: 10px;">
+    <div class="card-body">
+      <img src="{{ gato.imagem.url }}" class="card-img-top" alt="{{ gato.nome }}" style="width: 100%; height: 150px; object-fit: cover; border-bottom: 2px solid #ddd;">
+
+      <h5 class="cardR-title">{{ gato.nome }}</h5>
+      <p class="cardR-text">{{ gato.idade }} anos</p>
+      
+      <a href="{% url 'adocao' gato.id %}" class="btn btn-primary botaoC" style="display: block; margin: auto;">Adotar</a>
+    </div>
+  </div>
+{% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} Projeto Django {% endblock %}
+
+{% block main %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-info" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="main-content">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-left">
+                <h1>Adote um gato hoje!</h1>
+                <a href="{% url 'cadastro' %}" class="btn btn-primary botaoC">Cadastre-se</a>
+                <a href="{% url 'gatos' %}" class="btn btn-primary botaoC">Veja os gatos disponíveis</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'gato.jpg' %}" alt="Descrição da Imagem" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    {% endblock %}

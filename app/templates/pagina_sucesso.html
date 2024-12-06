@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h1>Sucesso</h1>
+        <a href="{% url 'criar_foto' %}"> Enviar outra foto </a>
+    </div>
+</div>
+{% endblock %}

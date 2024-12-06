@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Usuarios {% endblock %}
+
+{% block main %}
+<table class="table table-striped" style="width: 100%; margin: 20px 0;">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col" class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in dados %}
+        <tr>
+            <td><img src="{{ user.imagem.url }}" class="card-img-top" alt="Imagem do usuário"
+                    style="height: 200px; object-fit: cover;"></td>
+            <td>{{ user.nome }}</td>
+            <td>{{ user.email }}</td>
+            <td class="text-center">
+                <a href="{% url 'editar_usuario' user.id %}" class="botaoT botaoC">Editar</a>
+                <a href="{% url 'excluir_usuario' user.id %}" class="botaoT botaoC">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- <div style="display: flex; flex-wrap: wrap;">
+{% for user in dados %}
+
+<div class="cardR" style="width: 18rem; margin: 10px;">
+    <div class="card-body">
+        <h5 class="cardR-title">{{ user.nome }}</h5>
+        <p class="cardR-text">{{ user.email }}</p>
+        <a href="{% url 'editar_usuario user.id %'}" class="btn btn-primary botaoC"  style="display: block; margin: auto;">Editar</a>
+        <a href="{% url 'excluir_usuario user.id %'}" class="btn btn-primary botaoC"  style="display: block; margin: auto;">Excluir</a>
+    </div>
+  </div>
+
+{% endfor %} -->
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Login {% endblock %}
+
+{% block main %}
+<div class="container col-6 mt-5">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <form method="POST" class="form-cadastro">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{form}}
+        <br>
+        <input type="submit" value="Entrar" class="btn btn-primary botaoC" style="display: block; margin: auto;">
+    </form>
+</div>
+{% endblock %}

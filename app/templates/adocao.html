@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Adotar {{ gato.nome }}{% endblock %}
+
+{% block content %}
+<h1>Adotar Gato</h1>
+
+<h2>Detalhes do Gato</h2>
+<p><strong>Nome:</strong> {{ gato.nome }}</p>
+<p><strong>Idade:</strong> {{ gato.idade }} anos</p>
+<p><strong>Raça:</strong> {{ gato.raca }}</p>
+{% if gato.imagem %}
+    <img src="{{ gato.imagem.url }}" alt="{{ gato.nome }}" width="300">
+{% endif %}
+
+<h3>Deseja confirmar a adoção deste gato?</h3>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Confirmar Adoção</button>
+    <a href="{% url 'gatos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

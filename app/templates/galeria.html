@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="container mt-4">
+  <div class="row">
+    {% for fotos in dados %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ fotos.titulo }}</h5>
+        </div>
+        <div class="text-center" style="width: 30%;">
+          <img src="{{ fotos.imagem.url }}" class="card-img-top" alt="Imagem" style="height: 200px; object-fit: cover;">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock main %}

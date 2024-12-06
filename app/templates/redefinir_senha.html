@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="container mt-5">
+    <h1>Alterar Senha</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+    </form>
+    <br>
+    <a href="{% url 'dashboard' %}">Voltar ao Dashboard</a>
+</div>
+{% endblock %}

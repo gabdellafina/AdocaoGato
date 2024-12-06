@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+    <div class="row justify-content-center">
+        <div class="text-left">
+            <h1 class="mb-4">Novo Usuário</h1>
+            <form action="{% url 'cadastro' %}" method="POST" class="form-cadastro"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Nome Completo</label>
+                    {{ form.nome }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Senha</label>
+                    {{ form.senha }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_imagem" class="form-label">Imagem</label>
+                    <input type="file" name="imagem" id="id_imagem" class="form-control" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn botaoC botton-cadastro">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
